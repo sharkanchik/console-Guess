@@ -1,0 +1,39 @@
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Press first bumber: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.Write("Press second number: ");
+            int y = int.Parse(Console.ReadLine());
+
+            Random random = new Random();
+            int k = random.Next(x, y);
+            int count = 0;
+            string str;
+
+            Console.WriteLine("Guess the number {0} to {1}\n", x, y);
+
+            do
+            {
+                Console.Write("Your option: ");
+                str = Console.ReadLine();
+
+                if (int.Parse(str) < k)
+                    Console.WriteLine("conceived number is higest");
+                if (int.Parse(str) > k)
+                    Console.WriteLine("The intended number is less");
+
+                count++;
+            }
+            while (int.Parse(str) != k);
+
+            Console.WriteLine("you guessed number from {0} attempts ", count);
+            Console.ReadLine();
+        }
+    }
+}
